@@ -5,17 +5,20 @@ import (
 	"github.com/armando-couto/goutils"
 )
 
+const (
+	PATH = "./migrations"
+)
+
 func main() {
-	Up()
+	Run()
 }
 
-func Up() {
-	files := goutils.ListFolderFiles(".")
+func Run() {
+	// Sempre checa se a Paste existe
+	goutils.CreateDirectory(PATH)
+	// Find de Files
+	files := goutils.ListFolderFiles(PATH + "/")
 	for _, file := range files {
 		fmt.Println(file)
 	}
-}
-
-func Down() {
-
 }
